@@ -1,263 +1,270 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a/index.html b/index.html
-index 3279d546d6dab1e172f99d16b4b05cbef80ef274..407af11da8a0ce45bd2ccf6e4ae98f9982f16b9a 100644
- a/index.html
- b/index.html
-@@ -1,36 +1,239 @@
+index 3279d546d6dab1e172f99d16b4b05cbef80ef274..8638acc09c8f3061e0e0e9084dae248aa970edcd 100644
+--- a/index.html
++++ b/index.html
+@@ -1,36 +1,238 @@
  <!DOCTYPE html>
-<html>
-<html lang="en">
+-<html>
++<html lang="en">
  <head>
-  <title>My Website</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ben Bashioum</title>
-  <link rel="preload" as="image" href="./IMG_7148.JPG">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;500;600&display=swap" rel="stylesheet">
+-  <title>My Website</title>
++  <meta charset="UTF-8">
++  <meta name="viewport" content="width=device-width, initial-scale=1.0">
++  <title>Ben Bashioum</title>
++  <link rel="preload" as="image" href="./IMG_7148.JPG">
++  <link rel="preconnect" href="https://fonts.googleapis.com">
++  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;500;600&display=swap" rel="stylesheet">
    <style>
-    :root {
-      --photo-url: url("./IMG_7148.JPG");
-      --text-primary: #f8f8f8;
-      --text-muted: rgba(248, 248, 248, 0.72);
-      --glass: rgba(12, 12, 12, 0.55);
-      --outline: rgba(255, 255, 255, 0.12);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
++    :root {
++      --photo-url: url("./IMG_7148.JPG");
++      --text-primary: #f8f8f8;
++      --text-muted: rgba(248, 248, 248, 0.72);
++      --glass: rgba(12, 12, 12, 0.55);
++      --outline: rgba(255, 255, 255, 0.12);
++    }
++
++    * {
++      box-sizing: border-box;
++    }
++
      body {
        margin: 0;
        min-height: 100vh;
-      background-image: url("IMG_7148.JPG");
-      background-size: cover;
-      font-family: "Sora", sans-serif;
-      color: var(--text-primary);
-      background: var(--photo-url) center/cover no-repeat fixed;
-      background-color: #0b0b0b;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(130deg, rgba(7, 7, 7, 0.86) 5%, rgba(8, 8, 8, 0.3) 60%, rgba(6, 6, 6, 0.55) 100%);
-      z-index: -1;
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 72px 8vw 96px;
-      display: grid;
-      grid-template-columns: minmax(240px, 360px) minmax(0, 1fr);
-      gap: 56px;
-      align-items: start;
-    }
-
-    .intro {
-      position: sticky;
-      top: 64px;
-      display: grid;
-      gap: 20px;
-    }
-
-    .title {
-      margin: 0;
-      font-size: clamp(2.6rem, 4vw, 4.4rem);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    .subtitle {
-      margin: 0;
-      font-size: clamp(1.1rem, 2vw, 1.5rem);
-      color: var(--text-muted);
-      font-weight: 300;
-    }
-
-    .note {
-      margin: 0;
-      font-size: 0.95rem;
-      color: rgba(248, 248, 248, 0.6);
-      line-height: 1.6;
-    }
-
-    .gallery {
-      display: grid;
-      gap: 32px;
-    }
-
-    .group {
-      padding: 22px;
-      border-radius: 22px;
-      background: var(--glass);
-      border: 1px solid var(--outline);
-      backdrop-filter: blur(6px);
-      display: grid;
-      gap: 18px;
-    }
-
-    .group-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.85rem;
-    }
-
-    .group-header span {
-      color: var(--text-muted);
-      font-weight: 300;
-    }
-
-    .tiles {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 14px;
-    }
-
-    .tile {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      min-height: 160px;
-      background: var(--photo-url);
-      background-size: 220%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      font-family: Georgia, serif;
-      color: white;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
+-      background-image: url("IMG_7148.JPG");
+-      background-size: cover;
+-      background-position: center;
+-      background-repeat: no-repeat;
+-      background-attachment: fixed;
+-      font-family: Georgia, serif;
+-      color: white;
+-    }
+-
+-    .content {
+-      background: rgba(0, 0, 0, 0.45);
+-      padding: 40px;
+-      max-width: 600px;
+-      margin: 80px auto;
+-      border-radius: 10px;
++      font-family: "Sora", sans-serif;
++      color: var(--text-primary);
++      background: var(--photo-url) center/cover no-repeat fixed;
++      background-color: #0b0b0b;
++    }
++
++    body::before {
++      content: "";
++      position: fixed;
++      inset: 0;
++      background: linear-gradient(130deg, rgba(7, 7, 7, 0.86) 5%, rgba(8, 8, 8, 0.3) 60%, rgba(6, 6, 6, 0.55) 100%);
++      z-index: -1;
++    }
++
++    main {
++      max-width: 1200px;
++      margin: 0 auto;
++      padding: 72px 8vw 96px;
++      display: grid;
++      grid-template-columns: minmax(240px, 360px) minmax(0, 1fr);
++      gap: 56px;
++      align-items: start;
++    }
++
++    .intro {
++      position: sticky;
++      top: 64px;
++      display: grid;
++      gap: 20px;
++    }
++
++    .title {
++      margin: 0;
++      font-size: clamp(2.6rem, 4vw, 4.4rem);
++      letter-spacing: 0.08em;
++      text-transform: uppercase;
++      font-weight: 600;
++    }
++
++    .subtitle {
++      margin: 0;
++      font-size: clamp(1.1rem, 2vw, 1.5rem);
++      color: var(--text-muted);
++      font-weight: 300;
++    }
++
++    .note {
++      margin: 0;
++      font-size: 0.95rem;
++      color: rgba(248, 248, 248, 0.6);
++      line-height: 1.6;
++    }
++
++    .gallery {
++      display: grid;
++      gap: 32px;
++    }
++
++    .group {
++      padding: 22px;
++      border-radius: 22px;
++      background: var(--glass);
++      border: 1px solid var(--outline);
++      backdrop-filter: blur(6px);
++      display: grid;
++      gap: 18px;
++    }
++
++    .group-header {
++      display: flex;
++      justify-content: space-between;
++      align-items: center;
++      gap: 12px;
++      text-transform: uppercase;
++      letter-spacing: 0.08em;
++      font-size: 0.85rem;
++    }
++
++    .group-header span {
++      color: var(--text-muted);
++      font-weight: 300;
++    }
++
++    .photo-grid {
++      display: grid;
++      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
++      gap: 16px;
++    }
++
++    .photo-card {
++      position: relative;
++      margin: 0;
++      border-radius: 16px;
++      overflow: hidden;
++      background: rgba(0, 0, 0, 0.35);
++      min-height: 180px;
++      display: grid;
++    }
++
++    .photo-card img {
++      width: 100%;
++      height: 100%;
++      object-fit: cover;
++      display: block;
++      transition: transform 0.6s ease;
++    }
++
++    .photo-card figcaption {
++      position: absolute;
++      left: 12px;
++      bottom: 10px;
++      margin: 0;
++      padding: 6px 10px;
++      font-size: 0.75rem;
++      letter-spacing: 0.12em;
++      text-transform: uppercase;
++      background: rgba(0, 0, 0, 0.55);
++      border-radius: 999px;
++      z-index: 1;
++    }
++
++    .photo-card:hover img {
++      transform: scale(1.04);
++    }
++
++    @media (max-width: 900px) {
++      main {
++        grid-template-columns: 1fr;
++      }
++
++      .intro {
++        position: static;
++      }
      }
- 
-    .content {
-      background: rgba(0, 0, 0, 0.45);
-      padding: 40px;
-      max-width: 600px;
-      margin: 80px auto;
-      border-radius: 10px;
-    .tile::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.6));
-    }
-
-    .tile-label {
-      position: absolute;
-      left: 12px;
-      bottom: 10px;
-      margin: 0;
-      padding: 6px 10px;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      background: rgba(0, 0, 0, 0.55);
-      border-radius: 999px;
-      z-index: 1;
-    }
-
-    .tile:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .tilt-1 { background-position: 20% 30%; }
-    .tilt-2 { background-position: 70% 25%; }
-    .tilt-3 { background-position: 45% 55%; }
-    .tilt-4 { background-position: 80% 70%; }
-    .tilt-5 { background-position: 15% 70%; }
-    .tilt-6 { background-position: 55% 15%; }
-
-    @media (max-width: 900px) {
-      main {
-        grid-template-columns: 1fr;
-      }
-
-      .intro {
-        position: static;
-      }
-    }
    </style>
  </head>
  <body>
-  <main>
-    <section class="intro">
-      <h1 class="title">Ben Bashioum</h1>
-      <p class="subtitle">Jack of all trades, master of none</p>
-      <p class="note">
-        A minimal archive of moments &mdash; grouped by when the shutter clicked.
-        Each tile is a focused crop from the featured photograph to preview the mood before swapping in your full collection.
-      </p>
-    </section>
++  <main>
++    <section class="intro">
++      <h1 class="title">Ben Bashioum</h1>
++      <p class="subtitle">Jack of all trades, master of none</p>
++      <p class="note">
++        A minimal archive of moments &mdash; grouped by when the shutter clicked.
++        Northern Nevada leads the collection with full-frame shots from the desert, ranches, and roadside.
++      </p>
++    </section>
  
-  <div class="content">
-    <h1> What are you doing here?</h1></h1>
-    <p>This is my site.</p>
-  </div>
-    <section class="gallery">
-      <div class="group">
-        <div class="group-header">
-          <strong>Morning Sessions</strong>
-          <span>2019 &middot; 05:00-08:00</span>
-        </div>
-        <div class="tiles">
-          <div class="tile tilt-1">
-            <p class="tile-label">Low mist</p>
-          </div>
-          <div class="tile tilt-2">
-            <p class="tile-label">Line work</p>
-          </div>
-          <div class="tile tilt-3">
-            <p class="tile-label">Quiet field</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="group">
-        <div class="group-header">
-          <strong>Afternoon Frames</strong>
-          <span>2021 &middot; 12:00-15:30</span>
-        </div>
-        <div class="tiles">
-          <div class="tile tilt-4">
-            <p class="tile-label">Static hum</p>
-          </div>
-          <div class="tile tilt-5">
-            <p class="tile-label">Sunline</p>
-          </div>
-          <div class="tile tilt-6">
-            <p class="tile-label">Cutaway</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="group">
-        <div class="group-header">
-          <strong>Evening Drift</strong>
-          <span>2023 &middot; 18:30-20:00</span>
-        </div>
-        <div class="tiles">
-          <div class="tile tilt-3">
-            <p class="tile-label">Blue hour</p>
-          </div>
-          <div class="tile tilt-1">
-            <p class="tile-label">Still air</p>
-          </div>
-          <div class="tile tilt-2">
-            <p class="tile-label">Last light</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+-  <div class="content">
+-    <h1> What are you doing here?</h1></h1>
+-    <p>This is my site.</p>
+-  </div>
+-
++    <section class="gallery">
++      <div class="group">
++        <div class="group-header">
++          <strong>Northern Nevada</strong>
++          <span>2019 &middot; 2023</span>
++        </div>
++        <div class="photo-grid">
++          <figure class="photo-card">
++            <img src="images/northern-nevada/nn-01.jpg" alt="Barbed wire foreground with mountains and open sky." loading="lazy" onerror="this.onerror=null;this.src='IMG_7148.JPG';">
++            <figcaption>Fence line</figcaption>
++          </figure>
++          <figure class="photo-card">
++            <img src="images/northern-nevada/nn-02.jpg" alt="Dusty playa with work trucks and a pale blue sky." loading="lazy" onerror="this.onerror=null;this.src='IMG_7148.JPG';">
++            <figcaption>Playa shift</figcaption>
++          </figure>
++          <figure class="photo-card">
++            <img src="images/northern-nevada/nn-03.jpg" alt="Desert floor with scrub brush and distant mountains." loading="lazy" onerror="this.onerror=null;this.src='IMG_7148.JPG';">
++            <figcaption>Desert brush</figcaption>
++          </figure>
++          <figure class="photo-card">
++            <img src="images/northern-nevada/nn-04.jpg" alt="Warm cabin interior with a door and window light." loading="lazy" onerror="this.onerror=null;this.src='IMG_7148.JPG';">
++            <figcaption>Cabin glow</figcaption>
++          </figure>
++          <figure class="photo-card">
++            <img src="images/northern-nevada/nn-05.jpg" alt="Wide open desert with mountain silhouettes under deep sky." loading="lazy" onerror="this.onerror=null;this.src='IMG_7148.JPG';">
++            <figcaption>Open basin</figcaption>
++          </figure>
++          <figure class="photo-card">
++            <img src="images/northern-nevada/nn-06.jpg" alt="Industrial equipment on the playa beneath a wide sky." loading="lazy" onerror="this.onerror=null;this.src='IMG_7148.JPG';">
++            <figcaption>Field tower</figcaption>
++          </figure>
++          <figure class="photo-card">
++            <img src="images/northern-nevada/nn-07.jpg" alt="Shipping container building under the midday sun." loading="lazy" onerror="this.onerror=null;this.src='IMG_7148.JPG';">
++            <figcaption>Container side</figcaption>
++          </figure>
++          <figure class="photo-card">
++            <img src="images/northern-nevada/nn-08.jpg" alt="Utility poles and a small shed along a rural road." loading="lazy" onerror="this.onerror=null;this.src='IMG_7148.JPG';">
++            <figcaption>Utility yard</figcaption>
++          </figure>
++          <figure class="photo-card">
++            <img src="images/northern-nevada/nn-09.jpg" alt="Rural road with power lines and low desert vegetation." loading="lazy" onerror="this.onerror=null;this.src='IMG_7148.JPG';">
++            <figcaption>Roadside</figcaption>
++          </figure>
++          <figure class="photo-card">
++            <img src="images/northern-nevada/nn-10.jpg" alt="Front view of a vintage red off-road vehicle." loading="lazy" onerror="this.onerror=null;this.src='IMG_7148.JPG';">
++            <figcaption>Red rig</figcaption>
++          </figure>
++          <figure class="photo-card">
++            <img src="images/northern-nevada/nn-11.jpg" alt="Rail line and power poles cutting across the desert." loading="lazy" onerror="this.onerror=null;this.src='IMG_7148.JPG';">
++            <figcaption>Rail stretch</figcaption>
++          </figure>
++          <figure class="photo-card">
++            <img src="images/northern-nevada/nn-12.jpg" alt="Close-up of barbed wire on a weathered fence post." loading="lazy" onerror="this.onerror=null;this.src='IMG_7148.JPG';">
++            <figcaption>Weathered wire</figcaption>
++          </figure>
++          <figure class="photo-card">
++            <img src="images/northern-nevada/nn-13.jpg" alt="Shipping container with doors in a desert camp." loading="lazy" onerror="this.onerror=null;this.src='IMG_7148.JPG';">
++            <figcaption>Desert quarters</figcaption>
++          </figure>
++        </div>
++      </div>
++    </section>
++  </main>
  </body>
  </html>
 -
+ 
+EOF
+)
