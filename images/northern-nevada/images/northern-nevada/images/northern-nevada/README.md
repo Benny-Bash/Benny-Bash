@@ -1,6 +1,7 @@
 # Northern Nevada photo set
 
 Add the following images to this folder to populate the gallery:
+![IMG_7155](https://github.com/user-attachments/assets/54508070-41b1-4fef-ab85-062b25a19b81)
 
 - nn-01.jpg
 - nn-02.jpg
